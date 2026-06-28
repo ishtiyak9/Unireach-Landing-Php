@@ -1,8 +1,9 @@
 <?php
 // Normalized path resolution for Windows and Unix
-$uri = $_SERVER['REQUEST_URI'];
+$uri = $_SERVER['REQUEST_URI'] ?? '/';
 $path = parse_url($uri, PHP_URL_PATH);
-$path = urldecode($path);
+$path = urldecode($path ?? '/');
+$path = $path === '' ? '/' : $path;
 
 // Define base directory
 $baseDir = __DIR__;
@@ -18,10 +19,28 @@ if ($path !== '/' && file_exists($requestedFile) && !is_dir($requestedFile)) {
 
 // 2. Handle clean URLs (e.g., /privacy -> privacy.php)
 $cleanPath = rtrim($path, '/');
-// 2a. Handle the homepage explicitly
-if ($path === '/' || $cleanPath === '') {
-    include $baseDir . DIRECTORY_SEPARATOR . 'index.php';
-    exit;
+if ($cleanPath === '') {
+    $cleanPath = '/';
+}
+
+$routeMap = [
+    '/' => 'index.php',
+    '/about' => 'about.php',
+    '/staffing' => 'staffing.php',
+    '/concierge' => 'concierge.php',
+    '/contact' => 'contact.php',
+    '/connect' => 'connect.php',
+    '/privacy' => 'privacy.php',
+    '/faq' => 'faq.php',
+    '/error' => 'error.php',
+];
+
+if (isset($routeMap[$cleanPath])) {
+    $routeFile = $baseDir . DIRECTORY_SEPARATOR . $routeMap[$cleanPath];
+    if (file_exists($routeFile)) {
+        include $routeFile;
+        exit;
+    }
 }
 
 $phpFile = $baseDir . str_replace('/', DIRECTORY_SEPARATOR, $cleanPath) . '.php';
@@ -32,7 +51,7 @@ if (file_exists($phpFile)) {
 }
 
 // 3. Route known error page if requested explicitly
-if ($cleanPath === '/error' || $cleanPath === 'error' || $cleanPath === 'error.php') {
+if ($cleanPath === '/error' || $cleanPath === 'error' || $cleanPath === '/error.php' || $cleanPath === 'error.php') {
     include $baseDir . DIRECTORY_SEPARATOR . 'error.php';
     exit;
 }

@@ -13,25 +13,64 @@ include 'includes/navbar.php';
 
 <main id="main-content">
   <!-- HERO SECTION -->
-  <section id="staffing-hero" class="relative pt-60 pb-32 overflow-hidden">
+  <section id="staffing-hero" class="relative overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary to-primary"></div>
-      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600" class="w-full h-full object-cover opacity-30" alt="Corporate Office" />
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600" width="1600" height="1000" loading="eager" decoding="async" class="w-full h-full object-cover object-center opacity-30" alt="Corporate Office" />
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/80 to-primary/60"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(209,167,81,0.18),_transparent_35%)]"></div>
     </div>
-    
-    <div class="container-max relative z-10">
-      <div class="max-w-3xl reveal">
-        <span class="section-tag">Enterprise Solutions</span>
-        <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-bold mt-6 mb-8 text-white leading-[1.1]">
-          Global Talent. <br />
-          <span class="text-accent italic font-quote">European Precision.</span>
-        </h1>
-        <p class="text-text-light/70 text-xl font-quote max-w-2xl leading-relaxed">
-          We engineer scalable workforce pipelines connecting high-potential South Asian professionals with leading European staffing agencies.
-        </p>
-        <div class="mt-12 flex flex-col sm:flex-row gap-6">
-          <a href="#pipeline" class="btn-accent px-10 py-4 text-sm font-bold tracking-widest uppercase">View Pipeline Strategy</a>
-          <a href="contact" class="btn-ghost px-10 py-4 text-sm font-bold tracking-widest uppercase">Download Proposal</a>
+
+    <div class="container-max relative z-10 py-28 lg:py-36">
+      <div class="grid items-center gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-7">
+          <span class="section-tag">Enterprise Staffing</span>
+          <h1 class="font-display text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-tight mt-6">
+            Global Talent. <br />
+            <span class="text-accent italic font-quote">European Precision.</span>
+          </h1>
+          <p class="text-text-light/70 mt-6 max-w-3xl text-lg md:text-xl leading-relaxed font-quote">
+            We architect exclusive workforce pipelines to place South Asian professionals into high-impact European roles with speed, compliance, and cultural alignment.
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row gap-4">
+            <a href="#pipeline" class="btn-accent px-10 py-4 text-sm font-bold tracking-widest uppercase">View Pipeline Strategy</a>
+            <a href="contact" class="btn-ghost px-10 py-4 text-sm font-bold tracking-widest uppercase">Request Partnership</a>
+          </div>
+
+          <div class="mt-12 grid gap-4 sm:grid-cols-2">
+            <div class="rounded-3xl border border-accent/15 bg-card-dark/80 p-6 shadow-[0_30px_80px_rgba(0,0,0,0.18)]">
+              <span class="text-sm uppercase tracking-[0.35em] text-accent font-bold">Trusted Pipeline</span>
+              <p class="mt-4 text-white text-3xl font-bold">15,000+</p>
+              <p class="mt-2 text-text-light/60 text-sm">pre-vetted talent and ready-to-deploy candidates.</p>
+            </div>
+            <div class="rounded-3xl border border-accent/15 bg-card-dark/80 p-6 shadow-[0_30px_80px_rgba(0,0,0,0.18)]">
+              <span class="text-sm uppercase tracking-[0.35em] text-accent font-bold">Guaranteed Stability</span>
+              <p class="mt-4 text-white text-3xl font-bold">90%</p>
+              <p class="mt-2 text-text-light/60 text-sm">candidate retention in the first 90 days.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 relative hidden lg:block">
+          <div class="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-[#111827]/90 via-[#0b1321]/80 to-transparent blur-2xl"></div>
+          <div class="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#07101f]/90 shadow-[0_40px_120px_rgba(0,0,0,0.35)]">
+            <div class="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-accent/30 to-transparent"></div>
+            <div class="p-8">
+              <span class="text-accent text-sm uppercase tracking-[0.35em] font-bold">Premium Workforce</span>
+              <h2 class="mt-4 text-3xl font-bold text-white">European-grade teams with local execution.</h2>
+              <p class="mt-4 text-text-light/60 text-sm leading-relaxed">From visa compliance to onboarding readiness, our candidates arrive job-ready and aligned with your hiring standards.</p>
+            </div>
+            <div class="grid gap-4 p-8 border-t border-white/10">
+              <div class="rounded-3xl bg-[#081421] p-5">
+                <p class="text-text-light/60 text-sm">Average candidate onboarding</p>
+                <p class="mt-2 text-white text-3xl font-bold">21 Days</p>
+              </div>
+              <div class="rounded-3xl bg-[#081421] p-5">
+                <p class="text-text-light/60 text-sm">GDPR and EU compliance</p>
+                <p class="mt-2 text-white text-3xl font-bold">100%</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

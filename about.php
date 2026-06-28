@@ -88,18 +88,20 @@ include 'includes/navbar.php';
   </section>
 
   <!-- HERITAGE & EVOLUTION -->
-  <section class="section-py bg-[#fdfdfd] text-primary relative overflow-hidden">
+  <section class="section-py bg-[#020813] relative overflow-hidden">
     <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
     <div class="container-max relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
         <div class="reveal">
-          <span class="text-accent font-black tracking-[0.4em] uppercase text-[10px] mb-6 block">Our Narrative</span>
-          <h2 class="font-display text-4xl md:text-5xl font-bold text-primary mb-8 leading-tight tracking-tighter">
-            From a Single Bridge <br /><span class="italic font-quote font-normal text-accent-dark">to a Global Architecture.</span>
-          </h2>
-          <div class="space-y-6 text-primary/70 text-lg leading-relaxed font-quote italic">
-            <p>Our story didn't start in a boardroom; it started with a conversation. We saw thousands of ambitious students and professionals in South Asia held back by a lack of transparent, strategic guidance.</p>
-            <p>We decided to build the bridge ourselves. What began as a dedicated office in Dhaka has evolved into a multi-continental operation. By establishing our own roots in <span class="text-primary font-bold">Rome</span> and <span class="text-white bg-primary px-2 py-0.5">London</span>, we transitioned from being a middleman to becoming the architect of the entire journey.</p>
+          <div class="rounded-[3rem] border border-white/10 bg-card-dark/95 p-12 shadow-2xl">
+            <span class="text-accent font-black tracking-[0.4em] uppercase text-[10px] mb-6 block">Our Narrative</span>
+            <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-8 leading-tight tracking-tighter">
+              From a Single Bridge <br /><span class="italic font-quote font-normal text-accent">to a Global Architecture.</span>
+            </h2>
+            <div class="space-y-6 text-text-light/70 text-lg leading-relaxed font-quote italic">
+              <p>Our story didn't start in a boardroom; it started with a conversation. We saw thousands of ambitious students and professionals in South Asia held back by a lack of transparent, strategic guidance.</p>
+              <p>We decided to build the bridge ourselves. What began as a dedicated office in Dhaka has evolved into a multi-continental operation. By establishing our own roots in <span class="text-accent font-bold">Rome</span> and <span class="text-white bg-accent/20 px-2 py-0.5 rounded-full">London</span>, we transitioned from being a middleman to becoming the architect of the entire journey.</p>
+            </div>
           </div>
         </div>
 
@@ -174,7 +176,7 @@ include 'includes/navbar.php';
   <section class="section-py bg-[#040a16] relative overflow-hidden">
     <!-- Background Visionary Element -->
     <div class="absolute inset-0 opacity-[0.05] pointer-events-none">
-        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600" class="w-full h-full object-cover" alt="Global Vision" />
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600" width="1600" height="1000" loading="eager" decoding="async" class="w-full h-full object-cover" alt="Global Vision" />
     </div>
 
     <div class="container-max relative z-10">

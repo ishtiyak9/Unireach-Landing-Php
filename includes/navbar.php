@@ -1,5 +1,7 @@
 <?php
-$current_page = basename($_SERVER['PHP_SELF']);
+$current_path = trim(parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH), '/');
+$current_page = $current_path === '' ? 'index' : $current_path;
+$current_page = preg_replace('/\.php$/', '', $current_page);
 ?>
 <!-- Header & Navbar -->
 <header
@@ -11,7 +13,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
     <div class="container-max flex items-center justify-between">
       <!-- Logo -->
       <a
-        href="./"
+        href="/"
         class="flex items-center gap-3 group relative z-10"
       >
         <img
@@ -24,33 +26,33 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
       <nav class="hidden lg:flex items-center gap-10">
         <a
-          href="about"
-          class="nav-link text-sm font-bold tracking-widest uppercase <?php echo ($current_page == 'about.php') ? 'active' : ''; ?>"
+          href="/about"
+          class="nav-link text-sm font-bold tracking-widest uppercase <?php echo ($current_page == 'about') ? 'active' : ''; ?>"
           >About</a
         >
         <a
-          href="./#services"
+          href="/#services"
           class="nav-link text-sm font-bold tracking-widest uppercase"
           >Services</a
         >
         <a
-          href="staffing"
-          class="nav-link text-sm font-bold tracking-widest uppercase <?php echo ($current_page == 'staffing.php') ? 'active' : ''; ?>"
+          href="/staffing"
+          class="nav-link text-sm font-bold tracking-widest uppercase <?php echo ($current_page == 'staffing') ? 'active' : ''; ?>"
           >Staffing</a
         >
         <a
-          href="concierge"
-          class="nav-link text-sm font-bold tracking-widest uppercase <?php echo ($current_page == 'concierge.php') ? 'active' : ''; ?>"
+          href="/concierge"
+          class="nav-link text-sm font-bold tracking-widest uppercase <?php echo ($current_page == 'concierge') ? 'active' : ''; ?>"
           >Concierge</a
         >
         <a
-          href="./#academy"
+          href="/#academy"
           class="nav-link text-sm font-bold tracking-widest uppercase"
           >UniAcademy</a
         >
         <a
-          href="contact"
-          class="btn-accent px-6 py-2.5 text-xs font-bold tracking-[0.2em] uppercase <?php echo ($current_page == 'contact.php') ? 'active' : ''; ?>"
+          href="/contact"
+          class="btn-accent px-6 py-2.5 text-xs font-bold tracking-[0.2em] uppercase <?php echo ($current_page == 'contact') ? 'active' : ''; ?>"
           >Contact</a
         >
       </nav>
@@ -76,32 +78,32 @@ $current_page = basename($_SERVER['PHP_SELF']);
 >
   <div class="flex flex-col items-center gap-8">
     <a
-      href="about"
-      class="mobile-link text-3xl font-display font-bold <?php echo ($current_page == 'about.php') ? 'text-accent' : 'text-white'; ?> hover:text-accent transition-colors"
+      href="/about"
+      class="mobile-link text-3xl font-display font-bold <?php echo ($current_page == 'about') ? 'text-accent' : 'text-white'; ?> hover:text-accent transition-colors"
       >About</a
     >
     <a
-      href="./#services"
+      href="/#services"
       class="mobile-link text-3xl font-display font-bold text-white hover:text-accent transition-colors"
       >Services</a
     >
     <a
-      href="staffing"
-      class="mobile-link text-3xl font-display font-bold <?php echo ($current_page == 'staffing.php') ? 'text-accent' : 'text-white'; ?> hover:text-accent transition-colors"
+      href="/staffing"
+      class="mobile-link text-3xl font-display font-bold <?php echo ($current_page == 'staffing') ? 'text-accent' : 'text-white'; ?> hover:text-accent transition-colors"
       >Staffing</a
     >
     <a
-      href="concierge"
-      class="mobile-link text-3xl font-display font-bold <?php echo ($current_page == 'concierge.php') ? 'text-accent' : 'text-white'; ?> hover:text-accent transition-colors"
+      href="/concierge"
+      class="mobile-link text-3xl font-display font-bold <?php echo ($current_page == 'concierge') ? 'text-accent' : 'text-white'; ?> hover:text-accent transition-colors"
       >Concierge</a
     >
     <a
-      href="./#academy"
+      href="/#academy"
       class="mobile-link text-3xl font-display font-bold text-white hover:text-accent transition-colors"
       >UniAcademy</a
     >
     <a
-      href="contact"
+      href="/contact"
       class="btn-accent px-10 py-4 text-sm font-bold uppercase tracking-widest mt-4"
       >Contact</a
     >

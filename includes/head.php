@@ -30,6 +30,14 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="<?php echo $canonical_url; ?>" />
 
+    <?php if (!empty($preload_image)): ?>
+      <link rel="preload" as="image" href="<?php echo htmlspecialchars($preload_image, ENT_QUOTES, 'UTF-8'); ?>" />
+    <?php endif; ?>
+
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+
     <!-- Robots -->
     <meta name="robots" content="<?php echo isset($meta_robots) ? $meta_robots : 'index, follow'; ?>" />
 
@@ -77,10 +85,7 @@
     <link rel="icon" type="image/png" href="images/favicon.png" />
 
     <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <!-- Tailwind Config -->
     <script>
@@ -109,6 +114,9 @@
         },
       };
     </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="main.css" />

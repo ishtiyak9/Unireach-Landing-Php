@@ -1,7 +1,33 @@
 <?php
+$request_uri = $_SERVER['REQUEST_URI'] ?? '/';
+$request_path = parse_url($request_uri, PHP_URL_PATH) ?: '/';
+$request_path = '/' . trim($request_path, '/');
+$request_path = $request_path === '/' ? '/' : $request_path;
+
+$known_routes = [
+  '/' => 'index.php',
+  '/about' => 'about.php',
+  '/staffing' => 'staffing.php',
+  '/concierge' => 'concierge.php',
+  '/contact' => 'contact.php',
+  '/connect' => 'connect.php',
+  '/privacy' => 'privacy.php',
+  '/faq' => 'faq.php',
+  '/error' => 'error.php',
+];
+
+if (isset($known_routes[$request_path])) {
+    $route_file = __DIR__ . DIRECTORY_SEPARATOR . $known_routes[$request_path];
+    if ($route_file !== __FILE__ && file_exists($route_file)) {
+        include $route_file;
+        exit;
+    }
+}
+
 // Page-specific variables
 $page_title = 'Unireach Consultancy | Expert Global Education & Migration Consultants';
 $meta_description = 'Unireach Consultancy: Your trusted partner for international education, student visas, and skilled migration. Architecting your global future.';
+$preload_image = 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
 $nav_type = 'transparent';
 
 // Include the head
@@ -52,7 +78,7 @@ include 'includes/navbar.php';
       <div class="lg:col-span-5 relative reveal-right">
         <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden border border-border-dark shadow-[0_0_40px_rgba(209,167,81,0.15)] group">
           <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent z-10 pointer-events-none"></div>
-          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Unireach Consultancy Education Consultants helping students with university admissions" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Unireach Consultancy Education Consultants helping students with university admissions" width="800" height="1000" loading="eager" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
 
           <!-- Floating Highlight Card -->
           <div class="absolute bottom-6 left-6 right-6 bg-card-dark/85 backdrop-blur-md border border-border-dark p-4 rounded-xl z-20 flex items-center gap-4 transition-transform duration-300 group-hover:-translate-y-2">
@@ -203,7 +229,7 @@ include 'includes/navbar.php';
             ];
             foreach(array_merge($countries, $countries) as $c): ?>
             <div class="country-card flex items-center gap-3">
-              <img src="https://flagcdn.com/w40/<?php echo $c[1]; ?>.png" alt="<?php echo $c[0]; ?>" class="w-8 rounded-sm shadow-sm" />
+              <img src="https://flagcdn.com/w40/<?php echo $c[1]; ?>.png" alt="<?php echo $c[0]; ?>" width="40" height="28" loading="lazy" decoding="async" class="w-8 rounded-sm shadow-sm" />
               <span class="font-semibold text-white whitespace-nowrap"><?php echo $c[0]; ?></span>
             </div>
             <?php endforeach; ?>
@@ -340,7 +366,7 @@ include 'includes/navbar.php';
         <div class="relative reveal reveal-right">
           <div class="absolute -inset-4 bg-accent/5 rounded-3xl blur-2xl z-0"></div>
           <div class="relative z-10 rounded-2xl overflow-hidden border border-border-dark shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Professional recruitment" class="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 hover:scale-100" />
+            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Professional recruitment" width="800" height="600" loading="lazy" decoding="async" class="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 hover:scale-100" />
             <div class="absolute bottom-6 left-6 right-6 p-6 bg-primary/80 backdrop-blur-md border border-white/10 rounded-xl">
               <div class="grid grid-cols-2 gap-4">
                 <div>
@@ -402,7 +428,7 @@ include 'includes/navbar.php';
             <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-accent/40 rounded-tl-3xl"></div>
             <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-accent/40 rounded-br-3xl"></div>
             <div class="rounded-3xl overflow-hidden border border-border-dark shadow-2xl relative">
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" alt="Training Session" class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700" />
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" alt="Training Session" width="800" height="600" loading="lazy" decoding="async" class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700" />
               <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
               <div class="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-card-dark/80 backdrop-blur-md border border-accent/20">
                 <div class="flex items-center gap-4">
@@ -475,7 +501,7 @@ include 'includes/navbar.php';
             <div>
               <h4 class="text-white font-bold"><?php echo $t[0]; ?></h4>
               <div class="flex items-center gap-2 text-text-light/60 text-sm mt-1">
-                <img src="https://flagcdn.com/w20/<?php echo $t[2]; ?>.png" class="w-4 rounded-sm opacity-90" alt="<?php echo $t[2]; ?>" />
+                <img src="https://flagcdn.com/w20/<?php echo $t[2]; ?>.png" class="w-4 rounded-sm opacity-90" alt="<?php echo $t[2]; ?>" width="20" height="14" loading="lazy" decoding="async" />
                 <span><?php echo $t[3]; ?></span>
               </div>
             </div>
@@ -516,8 +542,8 @@ include 'includes/navbar.php';
             <a href="contact" class="btn-accent px-10 py-4 flex items-center gap-2">Talk to an Expert <i class="ph-bold ph-arrow-right"></i></a>
             <div class="flex items-center gap-3">
               <div class="flex -space-x-4">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" class="w-12 h-12 rounded-full border-2 border-[#040a15] object-cover" />
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" class="w-12 h-12 rounded-full border-2 border-[#040a15] object-cover" />
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" width="100" height="100" loading="lazy" decoding="async" class="w-12 h-12 rounded-full border-2 border-[#040a15] object-cover" />
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" width="100" height="100" loading="lazy" decoding="async" class="w-12 h-12 rounded-full border-2 border-[#040a15] object-cover" />
                 <div class="w-12 h-12 rounded-full border-2 border-[#040a15] bg-accent text-primary flex items-center justify-center font-bold text-xs">+12k</div>
               </div>
               <div class="flex flex-col">
@@ -530,7 +556,7 @@ include 'includes/navbar.php';
 
         <div class="lg:col-span-5 relative reveal reveal-right hidden lg:block">
           <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl border border-white/5 ml-12">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" alt="Consultants Meeting" class="w-full h-[600px] object-cover scale-105 hover:scale-110 transition-transform duration-1000" />
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" alt="Consultants Meeting" width="800" height="600" loading="lazy" decoding="async" class="w-full h-[600px] object-cover scale-105 hover:scale-110 transition-transform duration-1000" />
           </div>
           <div class="absolute bottom-16 -left-16 bg-primary/95 backdrop-blur-xl border border-accent/30 text-white p-5 rounded-2xl shadow-2xl flex items-center gap-4 z-30 transform hover:-translate-y-2 transition-transform duration-300 group">
             <div class="w-14 h-14 bg-accent/20 text-accent rounded-full flex items-center justify-center group-hover:bg-accent group-hover:text-primary transition-colors"><i class="ph-fill ph-check-circle text-3xl"></i></div>
@@ -540,6 +566,53 @@ include 'includes/navbar.php';
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREMIUM PARTNERS SECTION -->
+  <section id="premium-partners" class="section-py relative z-10 bg-[#040a15] border-t border-border-dark">
+    <div class="container-max">
+      <div class="text-center mb-10 reveal">
+        <span class="section-tag">Premium Partners</span>
+        <h2 class="font-display text-3xl md:text-5xl font-bold mt-4 mb-4 text-white">White-glove support with trusted arrival partners</h2>
+        <p class="text-text-light/70 text-lg font-lora max-w-2xl mx-auto">Swisscare and Uniacco are selected to provide reliable insurance and housing support for international students and graduates arriving through Unireach.</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <a href="https://forms.swisscare.com/#/isie?icd=3179" target="_blank" class="group rounded-[2rem] border border-white/10 bg-[#0d1727]/95 p-6 shadow-[0_30px_90px_rgba(0,0,0,0.18)] transition-all duration-300 hover:-translate-y-1 hover:border-accent/30">
+          <div class="flex items-center gap-4">
+            <div class="flex h-16 w-16 items-center justify-center rounded-3xl border border-accent/20 bg-accent/10">
+              <img src="images/swisscare-logo.svg" alt="Swisscare logo" class="h-10 w-auto object-contain" />
+            </div>
+            <div>
+              <p class="text-sm uppercase tracking-[0.24em] text-accent font-semibold">Swisscare Insurance</p>
+              <h3 class="mt-2 text-xl font-bold text-white">Comprehensive health protection</h3>
+              <p class="mt-2 text-text-light/60 text-sm">Tailored coverage and assistance for students studying abroad.</p>
+            </div>
+          </div>
+          <div class="mt-6 flex items-center justify-between text-text-light/70 text-sm">
+            <span>Trusted arrival care</span>
+            <i class="ph ph-arrow-up-right text-accent"></i>
+          </div>
+        </a>
+
+        <a href="https://www.uniacco.com/" target="_blank" class="group rounded-[2rem] border border-white/10 bg-[#0d1727]/95 p-6 shadow-[0_30px_90px_rgba(0,0,0,0.18)] transition-all duration-300 hover:-translate-y-1 hover:border-accent/30">
+          <div class="flex items-center gap-4">
+            <div class="flex h-16 w-16 items-center justify-center rounded-3xl border border-accent/20 bg-accent/10">
+              <img src="images/uniacco.svg" alt="Uniacco logo" class="h-10 w-auto object-contain" />
+            </div>
+            <div>
+              <p class="text-sm uppercase tracking-[0.24em] text-accent font-semibold">Uniacco Accommodation</p>
+              <h3 class="mt-2 text-xl font-bold text-white">Verified student housing</h3>
+              <p class="mt-2 text-text-light/60 text-sm">Secure, comfortable and vetted accommodation for your arrival.</p>
+            </div>
+          </div>
+          <div class="mt-6 flex items-center justify-between text-text-light/70 text-sm">
+            <span>Arrival-ready support</span>
+            <i class="ph ph-arrow-up-right text-accent"></i>
+          </div>
+        </a>
       </div>
     </div>
   </section>

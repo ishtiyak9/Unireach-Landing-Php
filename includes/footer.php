@@ -3,7 +3,7 @@
   <!-- Decorative Background Grid & Brand Image -->
   <div class="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
   <div class="absolute inset-0 flex items-center justify-center opacity-[0.10] pointer-events-none overflow-hidden">
-    <img src="images/fbc2.png" alt="" class="w-full max-w-4xl object-contain" />
+    <img src="images/fbc2.png" alt="" loading="lazy" decoding="async" class="w-full max-w-4xl object-contain" />
   </div>
 
   <!-- Top Gradient line -->
@@ -14,7 +14,7 @@
       <!-- Column 1: Brand & About -->
       <div class="lg:col-span-4 pr-4">
         <a href="./" class="inline-block mb-8">
-          <img src="images/logo.png" alt="Unireach Logo" class="h-12 w-auto object-contain brightness-0 invert" />
+          <img src="images/logo.png" alt="Unireach Logo" loading="lazy" decoding="async" class="h-12 w-auto object-contain brightness-0 invert" />
         </a>
         <p class="text-text-light/60 text-sm leading-relaxed mb-8 font-lora">
           Your trusted partner in international education and migration. We architect careers by bridging the gap between your ambition and global opportunities.

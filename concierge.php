@@ -16,7 +16,7 @@ include 'includes/navbar.php';
   <section class="relative min-h-[70vh] flex items-center overflow-hidden">
     <div class="absolute inset-0 z-0">
       <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent z-10"></div>
-      <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=1600" class="w-full h-full object-cover opacity-40" alt="Executive Travel" />
+      <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=1600" width="1600" height="1000" loading="eager" decoding="async" class="w-full h-full object-cover opacity-40" alt="Executive Travel" />
     </div>
 
     <div class="container-max relative z-20 pt-36 pb-20">
@@ -124,6 +124,44 @@ include 'includes/navbar.php';
           </ul>
         </div>
 
+      </div>
+    </div>
+  </section>
+  <!-- TRUSTED PARTNERS -->
+  <section class="section-py bg-primary relative overflow-hidden">
+    <div class="container-max relative z-10">
+      <div class="max-w-5xl mx-auto reveal">
+        <div class="text-center mb-8">
+          <span class="section-tag">Trusted Transition Partners</span>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-white mt-4">Preferred support for the essentials of arrival</h2>
+          <p class="text-text-light/60 text-lg mt-4 max-w-2xl mx-auto font-quote">We work with proven partners to make your move smoother, safer, and more comfortable from day one.</p>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-2">
+          <a href="https://forms.swisscare.com/#/isie?icd=3179" target="_blank" class="group rounded-[2rem] border border-border-dark bg-card-dark p-7 transition-all duration-500 hover:border-accent hover:-translate-y-1">
+            <div class="flex items-center gap-4">
+              <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10">
+                <img src="images/swisscare-logo.svg" alt="Swisscare logo" class="h-8 w-auto object-contain" />
+              </div>
+              <div>
+                <h3 class="text-xl font-display font-semibold text-white">Swisscare Insurance</h3>
+                <p class="text-sm text-text-light/60 mt-1">Health protection and support for your stay abroad</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://www.uniacco.com/" target="_blank" class="group rounded-[2rem] border border-border-dark bg-card-dark p-7 transition-all duration-500 hover:border-accent hover:-translate-y-1">
+            <div class="flex items-center gap-4">
+              <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10">
+                <img src="images/uniacco.svg" alt="Uniacco logo" class="h-8 w-auto object-contain" />
+              </div>
+              <div>
+                <h3 class="text-xl font-display font-semibold text-white">Uniacco Accommodation</h3>
+                <p class="text-sm text-text-light/60 mt-1">Comfortable, verified housing support for your arrival</p>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </section>
